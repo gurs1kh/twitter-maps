@@ -1,26 +1,46 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Twitter Maps</title>
-
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="author" content="Manvir Singh">
-
-        <script src="https://code.jquery.com/jquery.min.js"></script>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
-
-        <link href="css/twittermaps.css" rel="stylesheet" type="text/css" />
-        <script src="twitterlib/twitterlib.min.js"></script>
-        <script src="js/twittermaps.js"></script>
-    </head>
-    <body>
-	<footer style="padding: 1em; background-color: lightyellow; border-top: 5px #EC791F">
+<head>
+  <meta charset="utf-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-route.js"></script>
+  <script src="pages.js"></script>
+  <script src="twittermaps.js"></script>
+  <link rel="stylesheet" href="css/twittermaps.css"/>
+  <title>Twitter Database</title>
+</head>
+<body>
+  <div class="container">
+    <div class="header" style="button:hover background: #3071A9">
+        <h1>Twitter Database</h1>
+		<div class="btn-group btn-group-justified" role="group" aria-label="...">
+		  <div class="btn-group" role="group">
+		    <a href="#/"><button style="background-color: silver" type="button" class="btn btn-default">Home</button></a>
+		  </div>
+		  <div class="btn-group" role="group">
+		    <a href="#/about"><button style="background-color: silver" type="button" class="btn btn-default">About</button></a>
+		  </div>
+		  <div class="btn-group" role="group">
+		    <a href="#/data"><button style="background-color: silver" type="button" class="btn btn-default">Data Viz</button></a>
+		  </div>
+		  <div class="btn-group" role="group">
+		    <a href="#/links"><button style="background-color: silver" type="button" class="btn btn-default">Links</button></a>
+		  </div>
+		</div>
+      </div>
+    </div>
+    <div ng-app="myApp">
+      <div ng-view></div>
+    </div>
+  <footer style="padding: 1em; background-color: lightyellow; border-top: 5px #EC791F">
     <p>Created by Team Hammer, UW INFO 343, SUM 2015, Mike Freeman</p>
     <p><a href = #>Back to Top &#8593</a></p>
   </footer>
-    </body>
+  </div>
+</body>
 </html>
