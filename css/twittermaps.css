@@ -24,10 +24,24 @@
   		background-color: white;
 	}
 
-	h3 {
+	h2, h3, #about {
 		text-align: left;
 		font-size: 18px;
 		color: blue;
+		padding: 1em;
+	}
+
+	p {
+		text-align: left;
+		font-size: 16px;
+		color: black;
+		padding: 1em;
+	}
+
+	#title {
+		text-decoration: underline;
+		font-weight: bold;
+		font-size: 20px;
 	}
 
 	footer {
@@ -36,7 +50,6 @@
 		font-style: italic;
 		color: red;
 		position: absolute;
-		top: 180%;
 		right: 0%;
 	}
 
