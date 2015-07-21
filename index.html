@@ -9,8 +9,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-route.js"></script>
-  <script src="pages.js"></script>
-  <script src="twittermaps.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/twittermaps.js"></script>
   <link rel="stylesheet" href="css/twittermaps.css"/>
   <title>Twitter Database</title>
 </head>
@@ -34,13 +34,16 @@
 		</div>
       </div>
     </div>
+    <main>
     <div ng-app="myApp">
       <div ng-view></div>
     </div>
+
+  </main>
   <footer style="padding: 1em; background-color: lightyellow; border-top: 5px #EC791F">
     <p>Created by Team Hammer, UW INFO 343, SUM 2015, Mike Freeman</p>
     <p><a href = #>Back to Top &#8593</a></p>
   </footer>
-  </div>
+  </div>  
 </body>
 </html>
