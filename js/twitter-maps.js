@@ -1,19 +1,20 @@
 var map;
 
-$(function() {
+function loadMap() {
 	map = L.map("map");
 	map.setView([40, 30], 2);
 	var layer = L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(map);
 	
 	search("api");
-});
+};
 
 function search(query) {
 	$.ajax({
-		 url:'../services/getData.php',
+		 url:'services/getData.php',
 		 data: {q : query},
 		 type: "get",
 		 dataType:"json",
+		 async: "true",
 		 success: function(data) {
 			populateMap(data, map);
 		 }
@@ -32,7 +33,7 @@ function populateMap(data, map) {
 			if (count < 5) {
 				//var circle2 = new L.circle(d.geo.coordinates, 1000000, {color:'red'}).addTo(map);
 				$.ajax({
-					 url:'../services/getEmbeddedTweet.php',
+					 url:'services/getEmbeddedTweet.php',
 					 data: {id : d.id_str},
 					 type: "get",
 					 dataType:"json",
