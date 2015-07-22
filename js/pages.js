@@ -3,8 +3,8 @@ var myApp = angular.module('myApp', ['ngRoute'])
 myApp.config(function($routeProvider) {
   $routeProvider
     .when('/', {
-    templateUrl: 'pages/maps.html',
-    controller: 'MapsController'
+    templateUrl: 'pages/map.html',
+    controller: 'HomeController'
   })
    .when('/about/', {
     templateUrl: 'pages/about.html',
@@ -18,9 +18,13 @@ myApp.config(function($routeProvider) {
     templateUrl: 'pages/links.html',
     controller: 'LinkController'
   })
+   .when('/twittermap/', {
+    templateUrl: 'pages/maps.html',
+    controller: 'MapController'
+  })
 })
 
-myApp.controller('MapsController', function($scope){
+myApp.controller('HomeController', function($scope){
   $scope.number = 10;
   loadMap();
 })
@@ -37,6 +41,8 @@ myApp.controller('LinkController', function($scope){
   $scope.lnk = "List of Links"
 })
 
-$('p').on('click', function() {
-  $(this).remove()
+myApp.controller('MapController', function($scope){
+  $scope.twitterMap = "Twitter Map"
 })
+
+
