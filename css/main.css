@@ -8,10 +8,6 @@
 		font-weight: bold;
 	}
 
-	#maps {
-		background-color: white;
-	}
-
 	body {
 		background-image: url('../img/twitter.jpg');
 		background-size: cover;
@@ -23,6 +19,11 @@
 		font-family: 'Open Sans';
 	}
 
+	.maps {
+		background-image: none;
+		background-color: white;
+	}
+	
 	main {
   		background-color: white;
 	}
