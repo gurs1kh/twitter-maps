@@ -5,32 +5,50 @@ $(function() {
 	map = L.map("map");
 	map.setView([40, 30], 2);
 	var layer = L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(map);
-	search("api");
+	var query = {
+		q: "api",
+		location: {
+			coordinates: [0, 0],
+			radius: "4000mi"
+		},
+		lang: null,
+		date: null,
+		country: null,
+		retweets: 0,
+		favorites: 0
+	}
+	search(query);
 });
 
 function search(query) {
+	var geocode;
+	if (query.location && query.location.coordinates && query.location.radius)
+		geocode = query.location.coordinates[0] + "," 
+				+ query.location.coordinates[1] + ","
+				+ query.location.radius;
 	$.ajax({
 		 url:'../services/getData.php',
-		 data: {q : query},
+		 data: {q: query.q, geocode: geocode, lang: query.lang, until: query.date},
 		 type: "get",
 		 dataType:"json",
 		 success: function(data) {
-			populateMap(data);
+			populateMap(data, query);
 		 }
 	});
 };
 
-function populateMap(data) {
+function populateMap(data, query) {
 	var circles = new Array();
 	var count = 0;
 	radius = 100000;
 	data.statuses.map(function(d){
-		if (d.geo && d.geo.coordinates) {
-			var circle = new L.circle(d.geo.coordinates, radius, {color:'#55acee', fillColor:'white', fillOpacity:0.8, weight:8}).addTo(map);
+		if (d.geo && d.geo.coordinates
+		 && d.place && (!query.country || (query.country && d.place.country_code == query.country))
+		 && d.retweet_count >= query.retweets && d.favorite_count >= query.favorites) {
+			var circle = new L.circle(d.geo.coordinates, radius, {color:'#55acee', fillColor:'white', fillOpacity:0.8, weight:5}).addTo(map);
 			circles.push(circle);
 			circle.selected = false;
 			if (count < 5) {
-				//var circle2 = new L.circle(d.geo.coordinates, 300000, {color:'red'}).addTo(map);
 				var info;
 				$.ajax({
 					url:'../services/getEmbeddedTweet.php',
@@ -47,7 +65,7 @@ function populateMap(data) {
 			count++;
 			
 			var popup = L.popup()
-				.setLatLng([d.geo.coordinates[0] + 0.5, d.geo.coordinates[1]])
+				.setLatLng([d.geo.coordinates[0] + 0.7, d.geo.coordinates[1]])
 				.setContent(d.user.name);
 			
 			circle.on("click", function(e) {
