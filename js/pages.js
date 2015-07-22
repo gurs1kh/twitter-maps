@@ -3,25 +3,26 @@ var myApp = angular.module('myApp', ['ngRoute'])
 myApp.config(function($routeProvider) {
   $routeProvider
     .when('/', {
-    templateUrl: 'pages/landing.html',
-    controller: 'LandingController',
+    templateUrl: 'pages/maps.html',
+    controller: 'MapsController'
   })
    .when('/about/', {
     templateUrl: 'pages/about.html',
-    controller: 'AboutController',
+    controller: 'AboutController'
   })
    .when('/data/', {
     templateUrl: 'pages/data.html',
-    controller: 'DataController',
+    controller: 'DataController'
   })
    .when('/links/', {
     templateUrl: 'pages/links.html',
-    controller: 'LinkController',
+    controller: 'LinkController'
   })
 })
 
-myApp.controller('LandingController', function($scope){
-  $scope.number = 10
+myApp.controller('MapsController', function($scope){
+  $scope.number = 10;
+  loadMap();
 })
 
 myApp.controller('AboutController', function($scope){
