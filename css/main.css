@@ -1,0 +1,66 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+@media screen and (max-width: 2500px) {
+	h1 {
+		font-family: 'Open Sans';
+		color: silver;
+		text-align: center;
+		font-weight: bold;
+	}
+
+	body {
+		background-image: url("../img/twitter.jpg");
+		background-size: 100%;
+		background-attachment: fixed;
+		text-align: center;
+		opacity: 0.85;
+		margin: 20px;
+		font-family: 'Open Sans';
+	}
+
+	main {
+ 	    margin-right: 100px;
+  		margin-left: 100px;
+  		background-color: white;
+	}
+
+	h2, h3, #about, #link {
+		text-align: left;
+		font-size: 18px;
+		color: blue;
+		padding: 1em;
+	}
+
+	p {
+		text-align: left;
+		font-size: 16px;
+		color: black;
+		padding: 1em;
+	}
+
+	#title {
+		text-decoration: underline;
+		font-weight: bold;
+		font-size: 20px;
+	}
+
+	footer {
+		text-decoration: italic;
+		text-align: right;
+		font-style: italic;
+		color: red;
+	}
+
+	a:link {
+		color:#0000AA;
+		text-decoration: none;
+	}
+
+	a:visited {
+		color:#0000AA;
+	}
+
+	a:hover {
+		color:#0000EE;
+	}
+}
