@@ -1,32 +1,116 @@
-<script>
-var who = $('#who').on('click', function() {
-	alert("University of Washington INFO 343 students Kevin Chen, Ian Durra, Bilal Siddiqui, and Manvir Singh.")
-})
-var what = $('#what').on('click', function() {
-	alert("An extensive Twitter database/search form.")
-})
-var where = $('#where').on('click', function() {
-	alert("Created in Seattle, WA... but pulling data from across the globe.")
-})
-var when = $('#when').on('click', function() {
-	alert("University of Washington INFO 343 students Kevin Chen, Ian Durra, Bilal Siddiqui, and Manvir Singh.")
-})
-var why = $('#why').on('click', function() {
-	alert("Twitter has become very popular and pervasive to the extent where people all around the world are using this social networking site. Not to mention, the content of each tweet can range from personal events to breaking news. The diversity of tweets creates the massive opportunity for people to look into the data and pull out patterns.")
-})
-var how = $('#how').on('click', function() {
-	alert("Twitter offers an API for public use. We use this API to generate a database so that everyone (including those without coding experience) can search and filter through Twitter data to find interesting tweets and patterns.")
-})
-</script>
 <div>
     <h2 id="title">ABOUT</h2>
     <p>According to Twitter, there are more than 300 million monthly active users on Twitter. Multiply the 300 million users with the average amount of monthly tweets per user, and the amount of tweets is nearly unquantifiable.</p>
-    <button onclick="who()" id="who">Who</button>
-    <button onclick="what()" id="what">What</button>
-    <button onclick="where()" id="where">Where</button>
-    <button onclick="when()" id="when">When</button>
-    <button onclick="why()" id="why">Why</button>
-    <button onclick="how()" id="how">How</button>
+
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Who</button>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Who?</h4>
+      </div>
+      <div class="modal-body">
+        <p>University of Washington INFO 343 students Kevin Chen, Ian Durra, Bilal Siddiqui, and Manvir Singh.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">What</button>
+<div id="myModal2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">What?</h4>
+      </div>
+      <div class="modal-body">
+        <p>An extensive Twitter database/search form.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3">Where</button>
+<div id="myModal3" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Where?</h4>
+      </div>
+      <div class="modal-body">
+        <p>Created in Seattle, WA... but pulling data from across the globe.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal4">When</button>
+<div id="myModal4" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">When?</h4>
+      </div>
+      <div class="modal-body">
+        <p>This project was completed on July 22nd, 2015.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal5">Why</button>
+<div id="myModal5" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Why?</h4>
+      </div>
+      <div class="modal-body">
+        <p>Twitter has become very popular and pervasive to the extent where people all around the world are using this social networking site. Not to mention, the content of each tweet can range from personal events to breaking news. The diversity of tweets creates the massive opportunity for people to look into the data and pull out patterns.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal6">How</button>
+<div id="myModal6" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">How?</h4>
+      </div>
+      <div class="modal-body">
+        <p>Twitter offers an API for public use. We use this API to generate a database so that everyone (including those without coding experience) can search and filter through Twitter data to find interesting tweets and patterns.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
     <p>To see some example data visualization patterns we have created, click on the "data" tab. For links to sources and other interesting pages, click on the "links" tab. Thank you for visiting our page!</p>
+
 
 
