@@ -8,7 +8,6 @@ $(function() {
 });
 
 function search(query) {
-	console.log(2);
 	$.ajax({
 		 url:'services/getData.php',
 		 data: {q : query},
@@ -21,7 +20,6 @@ function search(query) {
 };
 
 function populateMap(data, map) {
-		console.log(3);
 	var circles = new Array();
 	var count = 0;
 	data.statuses.map(function(d){
@@ -33,7 +31,7 @@ function populateMap(data, map) {
 			if (count < 5) {
 				//var circle2 = new L.circle(d.geo.coordinates, 1000000, {color:'red'}).addTo(map);
 				$.ajax({
-					 url:'service/getEmbeddedTweet.php',
+					 url:'services/getEmbeddedTweet.php',
 					 data: {id : d.id_str},
 					 type: "get",
 					 dataType:"json",
