@@ -40,7 +40,7 @@ myApp.controller('HomeController', function($scope, $http){
     $scope.radius = "";
     $scope.langs = "";
     $scope.country = "";
-    $scope.date = "2015-07-";
+    $scope.date = "";
     $scope.favorite = "";
     $scope.retweet = "";
     $scope.locationShow = false;
@@ -50,6 +50,8 @@ myApp.controller('HomeController', function($scope, $http){
     $scope.favoriteShow = false;
     $scope.retweetShow = false;
     $scope.miles = ["1", "5", "10", "20", "50", "100", "1000", "10,000"];
+    $scope.languages = ["en", "ar"];
+    $scope.countries = ["us", "ar"];
 
     $scope.isDisabled = function(a,b,c,d,e,f){
       return (a ||
@@ -74,6 +76,7 @@ myApp.controller('HomeController', function($scope, $http){
         query += "&lang=" + $scope.langs;
       }
       if($scope.dateShow){
+        $scope.date = "2015-07-" + $scope.date;
         var date = true;
         query += "&until=" + $scope.date;
       }
@@ -89,12 +92,12 @@ myApp.controller('HomeController', function($scope, $http){
         retweet = $scope.retweet;
       }
 
-      /*
+      
       var formattedURL = encodeURIComponent(query);
       $http.get(baseUrl + formattedURL).success(function(response){
             console.log(response);
-        });
-      */
+      });
+      
     }
     //loadMap();
 })
