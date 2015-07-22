@@ -1,7 +1,3 @@
-/*
-    INFO 343
-
-
 var baseUrl = "https://api.twitter.com/1.1/search/tweets.json?q=";
 var country = "";
 var favorite = "";
@@ -12,7 +8,6 @@ var date = false;
 var queryApp = angular.module('queryApp', []);
 
 var queryCtrl = queryApp.controller('queryCtrl', function($scope, $http){
-});
 
     //url encode this
     $scope.query = "";
@@ -76,4 +71,4 @@ var queryCtrl = queryApp.controller('queryCtrl', function($scope, $http){
         });
    	}
 })
-*/
+
