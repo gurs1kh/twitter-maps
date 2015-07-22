@@ -13,11 +13,12 @@
 		<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
         <link href="../css/twitter-maps.css" rel="stylesheet" type="text/css" />
+        <script src="../js/form.js"></script>
         <script src="../js/twitter-maps.js"></script>
     </head>
     <body>
 		<div id="form">
-			<div ng-app="formApp">
+			<div ng-app="formApp" ng-controller="formCtrl">
 				<div class="row">
 					<!--Responsive Form-->
 					<div class="col-xs-3"></div>
@@ -50,7 +51,7 @@
 									<p class="help-block" ng-show="queryForm.longitude.$error.pattern">Number must be between -180 and 180, and up to 3 digits</p>
 									<label>Search Radius</label>
 									<select name="radius" ng-model="radius">
-										<option value="{{radius}}" ng-repeat="distance in miles">{{distance}}</option>
+										<option value="{{distance}}" ng-repeat="distance in miles">{{distance}}</option>
 									</select>
 								</div>
 								<div id="language" ng-show="langsShow">
@@ -76,19 +77,19 @@
 								<div id="favorite" ng-show="favoriteShow">   
 									<!-- Set Global Variable-->
 									<label>Favorite Count</label>
-									<input name="favorite" ng-pattern="/^[1-9][0-9]+$/" placeholder="Enter a number" ng-model="favorite" class="form-control"></input>
+									<input type="number" name="favorite" ng-pattern="/^[1-9][0-9]+$/" placeholder="Enter a number" ng-model="favorite" class="form-control"></input>
 									<p class="help-block" ng-show="queryForm.favorite.$error.pattern">Please enter a number with no leading 0's</p>
 								</div>
 								<div id="retweet" ng-show="retweetShow">  
 									<!-- Set Global Variable -->
 									<label>Retweet Count</label>
-									<input name="retweet" ng-pattern="/^[1-9][0-9]+$/" placeholder="Enter a number" ng-model="retweet" class="form-control"></input>
+									<input type="number" name="retweet" ng-pattern="/^[1-9][0-9]+$/" placeholder="Enter a number" ng-model="retweet" class="form-control"></input>
 									<p class="help-block" ng-show="queryForm.retweet.$error.pattern">Please enter a number with no leading 0's</p>
 								</div>
 							</div>
 							<div class="form-group">
 								<!-- Change this -->
-								<button ng-disabled="isDisabled(queryForm.query.$invalid, queryForm.latitude.$invalid, queryForm.longitude.$invalid, queryForm.date.$invalid, queryForm.favorite.$invalid, queryForm.retweet.$invalid)" class="btn btn-primary" ng-click="ajaxCall()" type="submit">Submit</button>
+								<button ng-disabled="isDisabled(queryForm.query.$invalid, queryForm.latitude.$invalid, queryForm.longitude.$invalid, queryForm.date.$invalid, queryForm.favorite.$invalid, queryForm.retweet.$invalid)" class="btn btn-primary" ng-click="submitSearch()" type="submit">Submit</button>
 							</div>
 						</form>
 					</div>
@@ -96,11 +97,10 @@
 				</div>
 			</div>
 		</div>
-
-		<!--
+		
 		<div id="map"></div>
 		<div id="info"></div>
-		-->
+		
         <a href="#/">Back to Home</a>
     </body>
 </html>
