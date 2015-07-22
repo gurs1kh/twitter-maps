@@ -12,14 +12,14 @@
 		font-family: 'Open Sans';
 	}
 
-	/*.maps {
+	.maps {
 		background-image: none;
 		background-color: white;
-	}*/
-	
-	/*main {
+	}
+
+	main {
   		background-color: white;
-	}*/
+	}
 
 	h2, h3, #about, #link {
 		text-align: left;
