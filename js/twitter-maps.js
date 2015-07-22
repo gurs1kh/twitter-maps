@@ -10,7 +10,7 @@ $(function() {
 
 function search(query) {
 	$.ajax({
-		 url:'services/getData.php',
+		 url:'../services/getData.php',
 		 data: {q : query},
 		 type: "get",
 		 dataType:"json",
@@ -33,7 +33,7 @@ function populateMap(data) {
 				//var circle2 = new L.circle(d.geo.coordinates, 300000, {color:'red'}).addTo(map);
 				var info;
 				$.ajax({
-					url:'services/getEmbeddedTweet.php',
+					url:'../services/getEmbeddedTweet.php',
 					data: {id : d.id_str},
 					type: "get",
 					dataType:"json",

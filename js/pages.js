@@ -4,7 +4,7 @@ var baseUrl = "https://api.twitter.com/1.1/search/tweets.json?q=";
 var country = "";
 var favorite = "";
 var retweet = "";
-var location = false;
+var locationShow = false;
 var language = false;
 var date = false;
 
@@ -67,7 +67,7 @@ myApp.controller('HomeController', function($scope, $http){
 
       //form query
       if($scope.locationShow){
-        var location = true;
+        var locationShow = true;
         query += "&geocode=" + $scope.latitude + "," + 
           $scope.longitude + "," + $scope.radius + "mi";
       }
@@ -99,7 +99,6 @@ myApp.controller('HomeController', function($scope, $http){
       });
       
     }
-    //loadMap();
 })
 
 myApp.controller('AboutController', function($scope){
