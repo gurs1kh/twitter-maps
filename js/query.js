@@ -1,3 +1,4 @@
+/*
 var baseUrl = "https://api.twitter.com/1.1/search/tweets.json?q=";
 var country = "";
 var favorite = "";
@@ -71,4 +72,5 @@ var queryCtrl = queryApp.controller('queryCtrl', function($scope, $http){
         });
    	}
 })
+*/
 
