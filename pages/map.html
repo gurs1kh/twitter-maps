@@ -1,0 +1,53 @@
+<div>
+    <h3>Twitter search form goes here</h3>
+    <div ng-app="queryApp" ng-controller="queryCtrl">
+            <h3 ng-model="query">{{answer}}</h3>
+            <div id="divider">
+                <div class="row">
+                    <!--Responsive Form-->
+                    <div id="form">
+                        <form name="queryForm">
+                            <div class="form-group">
+                                <!--URL encoded character-->
+                                <label>Tags</label>
+                                <input name="query" ng-pattern="//" placeholder="Must be 2 characters" ng-model="query" class="form-control" required></input>
+                                <p class="help-block" ng-show="queryForm.query.$error.pattern">Please enter between 2 characters</p>
+                                <!-- Latitude and Longitude -->
+                                <label>Radius</label>
+                                <input name="radius" ng-pattern="//" placeholder="Enter a number" ng-model="query" class="form-control" required></input>
+                                <p class="help-block" ng-show="queryForm.radius.$error.pattern">Please enter only a number</p>
+                                <button>Random Radius</button>
+                                <!-- Dropdown -->
+                                <label>Lang</label>
+                                <select name="lang" ng-model="query" required>
+                                    <option value="{{language}}" ng-repeat="level in diff">{{language}}</option>
+                                </select><br/>
+                                <!-- Dropdown -->
+                                <label>Country</label>
+                                <select name="country" ng-model="query" required>
+                                    <option value="{{country}}" ng-repeat="level in diff">{{country}}</option>
+                                </select><br/>
+                                <!-- Tweets in last week YYYY-MM-DD -->
+                                <label>Date</label>
+                                <input name="date" ng-pattern="//" placeholder="Enter 2 - 9 digits" ng-model="query" class="form-control" required></input>
+                                <p class="help-block" ng-show="songForm.t.$error.pattern">Please enter only 2 - 9 digits (no leading 0's)</p>
+                                <!-- Set Global Variable-->
+                                <label>Favorite Count</label>
+                                <input name="favorite" ng-pattern="//" placeholder="Enter a number" ng-model="query" class="form-control" required></input>
+                                <p class="help-block" ng-show="songForm.t.$error.pattern">Please enter only 2 - 9 digits (no leading 0's)</p>
+                                <!-- Set Global Variable -->
+                                <label>Retweet Count</label>
+                                <input name="retweet" ng-pattern="//" placeholder="Enter a number" ng-model="query" class="form-control" required></input>
+                                <p class="help-block" ng-show="songForm.t.$error.pattern">Please enter only 2 - 9 digits (no leading 0's)</p>
+                            </div>
+                            <div class="form-group">
+                                <!-- Change this -->
+                                <button ng-disabled="isDisabled(queryForm.a.$invalid, queryForm.y.$invalid, queryForm.t.$invalid)" class="btn btn-primary" ng-click="sendQuery()" type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
