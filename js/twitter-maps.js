@@ -1,20 +1,19 @@
 var map;
 
-function loadMap() {
+$(function() {
 	map = L.map("map");
 	map.setView([40, 30], 2);
 	var layer = L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(map);
-	
 	search("api");
-};
+});
 
 function search(query) {
+	console.log(2);
 	$.ajax({
 		 url:'services/getData.php',
 		 data: {q : query},
 		 type: "get",
 		 dataType:"json",
-		 async: "true",
 		 success: function(data) {
 			populateMap(data, map);
 		 }
@@ -22,6 +21,7 @@ function search(query) {
 };
 
 function populateMap(data, map) {
+		console.log(3);
 	var circles = new Array();
 	var count = 0;
 	data.statuses.map(function(d){
@@ -33,7 +33,7 @@ function populateMap(data, map) {
 			if (count < 5) {
 				//var circle2 = new L.circle(d.geo.coordinates, 1000000, {color:'red'}).addTo(map);
 				$.ajax({
-					 url:'services/getEmbeddedTweet.php',
+					 url:'service/getEmbeddedTweet.php',
 					 data: {id : d.id_str},
 					 type: "get",
 					 dataType:"json",
