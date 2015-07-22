@@ -1,54 +1,82 @@
 <div>
-    <a href="#/twittermap">TEMP LINK TO MAP</a>
+    <h3>Twitter search form goes here</h3>
     <div ng-app="queryApp" ng-controller="queryCtrl">
-            <h3 ng-model="query">{{answer}}</h3>
             <div id="divider">
                 <div class="row">
                     <!--Responsive Form-->
-                    <div id="form">
+                    <div class="col-xs-3"></div>
+                    <div id="form" class="col-xs-6">
                         <form name="queryForm">
                             <div class="form-group">
-                                <!--URL encoded character-->
-                                <label>Query</label>
-                                <input name="query" ng-pattern="//" placeholder="Must be 2 characters" ng-model="query" class="form-control" required></input>
-                                <p class="help-block" ng-show="queryForm.query.$error.pattern">Please enter between 2 characters</p>
-                                <!-- Latitude and Longitude -->
-                                <label>Latitude</label>
-                                <input name="latitude" ng-pattern="//" placeholder="Enter a number" ng-model="query" class="form-control" required></input>
-                                <p class="help-block" ng-show="queryForm.latitude.$error.pattern">Please enter only a number</p>
-                                <label>Longitude</label>
-                                <input name="longitude" ng-pattern="//" placeholder="Enter a number" ng-model="query" class="form-control" required></input>
-                                <p class="help-block" ng-show="queryForm.longitude.$error.pattern">Please enter only a number</p>
-                                <button>Random Radius</button>
-                                <!-- Dropdown -->
-                                <label>Language</label>
-                                <select name="language" ng-model="query" required>
-                                    <option value="{{langs}}" ng-repeat="level in diff">{{langs}}</option>
-                                </select><br/>
-                                <!-- Dropdown -->
-                                <label>Country</label>
-                                <select name="country" ng-model="query" required>
-                                    <option value="{{country}}" ng-repeat="level in diff">{{country}}</option>
-                                </select><br/>
-                                <!-- Tweets in last week YYYY-MM-DD -->
-                                <label>Date</label>
-                                <input name="date" ng-pattern="//" placeholder="Enter 2 - 9 digits" ng-model="query" class="form-control" required></input>
-                                <p class="help-block" ng-show="queryForm.date.$error.pattern">Please enter only 2 - 9 digits (no leading 0's)</p>
-                                <!-- Set Global Variable-->
-                                <label>Favorite Count</label>
-                                <input name="favorite" ng-pattern="//" placeholder="Enter a number" ng-model="query" class="form-control" required></input>
-                                <p class="help-block" ng-show="queryForm.favorite.$error.pattern">Please enter only 2 - 9 digits (no leading 0's)</p>
-                                <!-- Set Global Variable -->
-                                <label>Retweet Count</label>
-                                <input name="retweet" ng-pattern="//" placeholder="Enter a number" ng-model="query" class="form-control" required></input>
-                                <p class="help-block" ng-show="queryForm.retweet.$error.pattern">Please enter only 2 - 9 digits (no leading 0's)</p>
+                                <div id="query">
+                                    <!--URL encoded character-->
+                                    <label>Enter a Search Below</label>
+                                    <input name="query" ng-pattern="/^.+$/" placeholder="Search Twitter" ng-model="query" class="form-control" required></input>
+                                    <p class="help-block" ng-show="queryForm.query.$error.pattern">Please Enter a Search</p>
+                                </div>
+                                <div id="display">
+                                    <h4>Select Search Options</h4>
+                                    <!--Display Checkboxes-->
+                                    <label><input type="checkbox" ng-model="locationShow" name="locationShow"> Location<br></label>
+                                    <label><input type="checkbox" ng-model="langsShow" name="langsShow"> Language<br></label>
+                                    <label><input type="checkbox" ng-model="countryShow" name="countryShow"> Country<br></label>
+                                    <label><input type="checkbox" ng-model="dateShow" name="dateShow"> Date<br></label>
+                                    <label><input type="checkbox" ng-model="favoriteShow" name="favoriteShow"> Favorites<br></label>
+                                    <label><input type="checkbox" ng-model="retweetShow" name="retweetShow"> Retweets<br></label>
+                                </div>
+                                <div id="location" ng-show="locationShow">
+                                    <!-- Latitude and Longitude -->
+                                    <label>Latitude</label>
+                                    <input name="latitude" ng-pattern="/^[-]?([0-9]|[0-8][0-9]|90)$/" placeholder="Enter a number between -90 and 90" ng-model="latitude" class="form-control" required></input>
+                                    <p class="help-block" ng-show="queryForm.latitude.$error.pattern">Number must be between -90 and 90, and up to 3 digits</p>
+                                    <label>Longitude</label>
+                                    <input name="longitude" ng-pattern="/^[-]?([0-9]|[0-9][0-9]|[0|1][0-7][0-9]|180)$/" placeholder="Enter a number between -180 and 180" ng-model="longitude" class="form-control" required></input>
+                                    <p class="help-block" ng-show="queryForm.longitude.$error.pattern">Number must be between -180 and 180, and up to 3 digits</p>
+                                    <label>Search Radius</label>
+                                    <select name="radius" ng-model="radius" required>
+                                        <option value="{{radius}}" ng-repeat="distance in miles">{{distance}}</option>
+                                    </select>
+                                </div>
+                                <div id="language" ng-show="langsShow">
+                                    <!-- Dropdown -->
+                                    <label>Language</label>
+                                    <select name="langs" ng-model="langs" required>
+                                        <option value="{{langs}}" ng-repeat="langs in languages">{{langs}}</option>
+                                    </select>
+                                </div>
+                                <div id="country" ng-show="countryShow">
+                                    <!-- Dropdown -->
+                                    <label>Country</label>
+                                    <select name="country" ng-model="country" required>
+                                        <option value="{{country}}" ng-repeat="country in countries">{{country}}</option>
+                                    </select>
+                                </div>
+                                <div id="date" ng-show="dateShow">
+                                    <!-- Tweets in last week YYYY-MM-DD -->
+                                    <label>Date</label>
+                                    <input name="date" ng-pattern="/[0-9][0-9]/" placeholder="Enter 2 digit numerical date within the last week" ng-model="date" class="form-control" required></input>
+                                    <p class="help-block" ng-show="queryForm.date.$error.pattern">Number must be exactly two digits</p>
+                                </div>
+                                <div id="favorite" ng-show="favoriteShow">   
+                                    <!-- Set Global Variable-->
+                                    <label>Favorite Count</label>
+                                    <input name="favorite" ng-pattern="/^[1-9][0-9]+$/" placeholder="Enter a number" ng-model="favorite" class="form-control" required></input>
+                                    <p class="help-block" ng-show="queryForm.favorite.$error.pattern">Please enter a number with no leading 0's</p>
+                                </div>
+                                <div id="retweet" ng-show="retweetShow">  
+                                    <!-- Set Global Variable -->
+                                    <label>Retweet Count</label>
+                                    <input name="retweet" ng-pattern="/^[1-9][0-9]+$/" placeholder="Enter a number" ng-model="retweet" class="form-control" required></input>
+                                    <p class="help-block" ng-show="queryForm.retweet.$error.pattern">Please enter a number with no leading 0's</p>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <!-- Change this -->
-                                <button ng-disabled="isDisabled(queryForm.a.$invalid, queryForm.y.$invalid, queryForm.t.$invalid)" class="btn btn-primary" ng-click="sendQuery()" type="submit">Submit</button>
+                                <button ng-disabled="isDisabled(queryForm.query.$invalid, queryForm.latitude.$invalid, queryForm.longitude.$invalid, queryForm.date.$invalid, queryForm.favorite.$invalid, queryForm.retweet.$invalid)" class="btn btn-primary" ng-click="sendQuery()" type="submit">Submit</button>
                             </div>
                         </form>
                     </div>
+                    <div class="col-xs-3"></div>
                 </div>
             </div>
         </div>
