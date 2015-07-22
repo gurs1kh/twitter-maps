@@ -9,7 +9,6 @@
 	}
 
 	body {
-		background-image: url('../img/twitter.jpg');
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-attachment: fixed;
@@ -68,4 +67,3 @@
 		color:#0000EE;
 	}
 }
-
