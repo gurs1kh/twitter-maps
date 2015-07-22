@@ -1,13 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
 @media screen and (max-width: 2500px) {
-	h1 {
-		font-family: 'Open Sans';
-		color: silver;
-		text-align: center;
-		font-weight: bold;
-	}
-
 	body {
 		background-image: url('../img/twitter.jpg');
 		background-size: cover;
@@ -19,14 +12,14 @@
 		font-family: 'Open Sans';
 	}
 
-	.maps {
+	/*.maps {
 		background-image: none;
 		background-color: white;
-	}
+	}*/
 	
-	main {
+	/*main {
   		background-color: white;
-	}
+	}*/
 
 	h2, h3, #about, #link {
 		text-align: left;
