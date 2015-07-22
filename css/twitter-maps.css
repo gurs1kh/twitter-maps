@@ -3,10 +3,22 @@ body {
     margin: 0;
 }
 
-html, body, #map {
+html, body, #container, #map {
 	width: 100%;
 	height: 100%;
 }
+
+/*#container {
+	height: 100%;
+}
+
+#form {
+	height: 15%;
+}
+
+#map {
+	height: 85%;
+}*/
 
 #info {
 	display: hidden;
@@ -14,4 +26,12 @@ html, body, #map {
 
 .twitter-tweet, .EmbeddedTweet-tweet {
 	border: none !important;
+}
+
+#homeLink {
+	position:fixed;
+	bottom:0px;
+	width:100%;
+	text-align: center;
+	background-color: white;
 }

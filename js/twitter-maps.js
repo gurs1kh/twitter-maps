@@ -22,7 +22,7 @@ $(function() {
 });
 
 function search(query) {
-	console.log(query);
+	//console.log(query);
 	if (circles) {
 		circles.forEach(function(circle) {
 			map.removeLayer(circle);
@@ -51,12 +51,12 @@ function search(query) {
 
 function populateMap(data, query) {
 	circles = new Array();
-	console.log(data);
+	//console.log(data);
 	var count = 0;
 	radius = 100000;
 	data.statuses.map(function(d){
 		if (d.geo && d.geo.coordinates
-		 && d.place && (!query.country || (query.country && d.place.country_code == query.country))
+		 && d.place && (!query.country || (query.country && d.place.country_code.toLowerCase() == query.country.toLowerCase()))
 		 && (!query.retweets || (query.retweets && d.retweet_count >= query.retweets))
 		 && (!query.favorites || (query.favorites && d.favorite_count >= query.favorites))) {
 			var circle = new L.circle(d.geo.coordinates, radius, {color:'#55acee', fillColor:'white', fillOpacity:0.8, weight:5}).addTo(map);
@@ -71,7 +71,7 @@ function populateMap(data, query) {
 					dataType:"json",
 					success: function(tweet) {
 						info = tweet.html;
-						console.log(tweet);
+						//console.log(tweet);
 						circle.bindPopup(info);
 					}
 				});

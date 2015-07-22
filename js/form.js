@@ -24,9 +24,9 @@ formApp.controller('formCtrl', function($scope, $http){
 	$scope.dateShow = false;
 	$scope.favoritesShow = false;
 	$scope.retweetsShow = false;
-	$scope.miles = ["1", "5", "10", "20", "50", "100", "1000", "10,000"];
-	$scope.languages = ["en", "ar"];
-	$scope.countries = ["us", "uk", "ar"];
+	$scope.miles = [null, "1", "5", "10", "20", "50", "100", "1000", "10,000"];
+	$scope.languages = [null, "en", "ar"];
+	$scope.countries = [null, "us", "gb", "ar"];
 
 	$scope.isDisabled = function(a,b,c,d,e,f){
 	  return (a ||
