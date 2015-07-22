@@ -7,16 +7,100 @@
         <meta name="author" content="Manvir Singh">
 
         <script src="https://code.jquery.com/jquery.min.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
 		<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-		<link rel="stylesheet" href="../css/main.css"/>
         <link href="../css/twitter-maps.css" rel="stylesheet" type="text/css" />
         <script src="../js/twitter-maps.js"></script>
     </head>
-    <body class="maps">
-		<div id="form"></div>
+    <body>
+		<div id="form">
+			<div ng-app="formApp">
+				<div class="row">
+					<!--Responsive Form-->
+					<div class="col-xs-3"></div>
+					<div id="form" class="col-xs-6">
+						<form name="queryForm">
+							<div class="form-group">
+								<div id="query">
+									<!--URL encoded character-->
+									<label>Enter a Search Below</label>
+									<input name="query" ng-pattern="/^.+$/" placeholder="Search Twitter" ng-model="query" class="form-control" required></input>
+									<p class="help-block" ng-show="queryForm.query.$error.pattern">Please Enter a Search</p>
+								</div>
+								<div id="display">
+									<h4>Select Search Options</h4>
+									<!--Display Checkboxes-->
+									<label><input type="checkbox" ng-model="locationShow" name="locationShow"> Location<br></label>
+									<label><input type="checkbox" ng-model="langsShow" name="langsShow"> Language<br></label>
+									<label><input type="checkbox" ng-model="countryShow" name="countryShow"> Country<br></label>
+									<label><input type="checkbox" ng-model="dateShow" name="dateShow"> Date<br></label>
+									<label><input type="checkbox" ng-model="favoriteShow" name="favoriteShow"> Favorites<br></label>
+									<label><input type="checkbox" ng-model="retweetShow" name="retweetShow"> Retweets<br></label>
+								</div>
+								<div id="location" ng-show="locationShow">
+									<!-- Latitude and Longitude -->
+									<label>Latitude</label>
+									<input name="latitude" ng-pattern="/^[-]?([0-9]|[0-8][0-9]|90)$/" placeholder="Enter a number between -90 and 90" ng-model="latitude" class="form-control"></input>
+									<p class="help-block" ng-show="queryForm.latitude.$error.pattern">Number must be between -90 and 90, and up to 3 digits</p>
+									<label>Longitude</label>
+									<input name="longitude" ng-pattern="/^[-]?([0-9]|[0-9][0-9]|[0|1][0-7][0-9]|180)$/" placeholder="Enter a number between -180 and 180" ng-model="longitude" class="form-control"></input>
+									<p class="help-block" ng-show="queryForm.longitude.$error.pattern">Number must be between -180 and 180, and up to 3 digits</p>
+									<label>Search Radius</label>
+									<select name="radius" ng-model="radius">
+										<option value="{{radius}}" ng-repeat="distance in miles">{{distance}}</option>
+									</select>
+								</div>
+								<div id="language" ng-show="langsShow">
+									<!-- Dropdown -->
+									<label>Language</label>
+									<select name="langs" ng-model="langs">
+										<option value="{{langs}}" ng-repeat="langs in languages">{{langs}}</option>
+									</select>
+								</div>
+								<div id="country" ng-show="countryShow">
+									<!-- Dropdown -->
+									<label>Country</label>
+									<select name="country" ng-model="country">
+										<option value="{{country}}" ng-repeat="country in countries">{{country}}</option>
+									</select>
+								</div>
+								<div id="date" ng-show="dateShow">
+									<!-- Tweets in last week YYYY-MM-DD -->
+									<label>Date</label>
+									<input name="date" ng-pattern="/[0-9][0-9]/" placeholder="Enter 2 digit numerical date within the last week" ng-model="date" class="form-control"></input>
+									<p class="help-block" ng-show="queryForm.date.$error.pattern">Number must be exactly two digits</p>
+								</div>
+								<div id="favorite" ng-show="favoriteShow">   
+									<!-- Set Global Variable-->
+									<label>Favorite Count</label>
+									<input name="favorite" ng-pattern="/^[1-9][0-9]+$/" placeholder="Enter a number" ng-model="favorite" class="form-control"></input>
+									<p class="help-block" ng-show="queryForm.favorite.$error.pattern">Please enter a number with no leading 0's</p>
+								</div>
+								<div id="retweet" ng-show="retweetShow">  
+									<!-- Set Global Variable -->
+									<label>Retweet Count</label>
+									<input name="retweet" ng-pattern="/^[1-9][0-9]+$/" placeholder="Enter a number" ng-model="retweet" class="form-control"></input>
+									<p class="help-block" ng-show="queryForm.retweet.$error.pattern">Please enter a number with no leading 0's</p>
+								</div>
+							</div>
+							<div class="form-group">
+								<!-- Change this -->
+								<button ng-disabled="isDisabled(queryForm.query.$invalid, queryForm.latitude.$invalid, queryForm.longitude.$invalid, queryForm.date.$invalid, queryForm.favorite.$invalid, queryForm.retweet.$invalid)" class="btn btn-primary" ng-click="ajaxCall()" type="submit">Submit</button>
+							</div>
+						</form>
+					</div>
+					<div class="col-xs-3"></div>
+				</div>
+			</div>
+		</div>
+
+		<!--
 		<div id="map"></div>
 		<div id="info"></div>
+		-->
         <a href="#/">Back to Home</a>
     </body>
 </html>
