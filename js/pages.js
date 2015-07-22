@@ -35,3 +35,7 @@ myApp.controller('DataController', function($scope){
 myApp.controller('LinkController', function($scope){
   $scope.lnk = "List of Links"
 })
+
+$('p').on('click', function() {
+  $(this).remove()
+})
