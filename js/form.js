@@ -26,7 +26,7 @@ formApp.controller('formCtrl', function($scope, $http){
 	$scope.retweetsShow = false;
 	$scope.miles = [null, "1", "5", "10", "20", "50", "100", "1000", "10,000"];
 	$scope.languages = [null, "en", "ar"];
-	$scope.countries = [null, "us", "gb", "ar"];
+	$scope.countries = [null, "us", "uk", "ar"];
 
 	$scope.isDisabled = function(a,b,c,d,e,f){
 	  return (a ||
@@ -54,6 +54,23 @@ formApp.controller('formCtrl', function($scope, $http){
 			retweets: $scope.retweets,
 			favorites: $scope.favorites
 		}
+
+		if(!$scope.locationShow){
+			query[location].coordinates[$scope.latitude] = null;
+			query[location].coordinates[$scope.latitude] = null;
+			query[location].radius = null;
+		} else if (!$scope.langShow){
+			query[lang] = null;
+		} else if (!$scope.countryShow){
+			query[country] = null;
+		} else if (!$scope.dateShow){
+			query[date] = null;
+		} else if (!$scope.favoritesShow){
+			query[favorites] = null;
+		} else if (!$scope.retweetsShow){
+			query[retweets] = null;
+		}
+
 		search(query);
 	}
 });

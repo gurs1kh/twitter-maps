@@ -35,12 +35,12 @@
 									<div id="display">
 										<h4>Select Search Options</h4>
 										<!--Display Checkboxes-->
-										<label><input type="checkbox" ng-model="locationShow" name="locationShow"> Location<br></label>
-										<label><input type="checkbox" ng-model="langsShow" name="langsShow"> Language<br></label>
-										<label><input type="checkbox" ng-model="countryShow" name="countryShow"> Country<br></label>
-										<label><input type="checkbox" ng-model="dateShow" name="dateShow"> Date<br></label>
-										<label><input type="checkbox" ng-model="favoriteShow" name="favoriteShow"> Favorites<br></label>
-										<label><input type="checkbox" ng-model="retweetShow" name="retweetShow"> Retweets<br></label>
+										<label><input type="checkbox" ng-model="locationShow" name="locationShow" ng-true-value="true" ng-false-value="false">Location<br></label>
+										<label><input type="checkbox" ng-model="langsShow" name="langsShow" ng-true-value="true" ng-false-value="false"> Language<br></label>
+										<label><input type="checkbox" ng-model="countryShow" name="countryShow" ng-true-value="true" ng-false-value="false"> Country<br></label>
+										<label><input type="checkbox" ng-model="dateShow" name="dateShow" ng-true-value="true" ng-false-value="false"> Date<br></label>
+										<label><input type="checkbox" ng-model="favoriteShow" name="favoriteShow" ng-true-value="true" ng-false-value="false"> Favorites<br></label>
+										<label><input type="checkbox" ng-model="retweetShow" name="retweetShow" ng-true-value="true" ng-false-value="false"> Retweets<br></label>
 									</div>
 									<div id="location" ng-show="locationShow">
 										<!-- Latitude and Longitude -->
