@@ -51,7 +51,6 @@ function search(query) {
 function populateMap(data, query) {
 	circles = new Array();
 	//console.log(data);
-	var count = 0;
 	radius = 100000;
 	data.statuses.map(function(d){
 		if (d.geo && d.geo.coordinates
@@ -61,21 +60,19 @@ function populateMap(data, query) {
 			var circle = new L.circle(d.geo.coordinates, radius, {color:'#55acee', fillColor:'white', fillOpacity:0.8, weight:5}).addTo(map);
 			circles.push(circle);
 			circle.selected = false;
-			if (count < 10) {
-				var info;
-				$.ajax({
-					url:'../services/getEmbeddedTweet.php',
-					data: {id : d.id_str},
-					type: "get",
-					dataType:"json",
-					success: function(tweet) {
-						info = tweet.html;
-						//console.log(tweet);
-						circle.bindPopup(info);
-					}
-				});
-			}
-			count++;
+			
+			var info;
+			$.ajax({
+				url:'../services/getEmbeddedTweet.php',
+				data: {id : d.id_str},
+				type: "get",
+				dataType:"json",
+				success: function(tweet) {
+					info = tweet.html;
+					//console.log(tweet);
+					circle.bindPopup(info);
+				}
+			});
 			
 			var popup = L.popup()
 				.setLatLng([d.geo.coordinates[0] + 0.7, d.geo.coordinates[1]])
