@@ -13,7 +13,6 @@
   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
   
-		<link rel="stylesheet" href="../css/main.css"/>
   <link href="css/twitter-maps.css" rel="stylesheet" type="text/css" />
   <script src="js/twitter-maps.js"></script>
   
@@ -25,7 +24,7 @@
 </head>
 <body>
   <div class="container">
-    <div class="header" style="button:hover background: #3071A9">
+    <header>
 		<div class="btn-group btn-group-justified" role="group" aria-label="...">
 		  <div class="btn-group" role="group">
 		    <a href="#/"><button style="background-color: silver" type="button" class="btn btn-default">Home</button></a>
@@ -40,18 +39,18 @@
 		    <a href="#/links"><button style="background-color: silver" type="button" class="btn btn-default">Links</button></a>
 		  </div>
 		</div>
-      </div>
-    </div>
+      </header>
     <main>
     <div ng-app="myApp">
       <div ng-view></div>
     </div>
 
   </main>
-  <footer style="padding: 1em; background-color: black; border-top: 5px #EC791F">
+  <footer>
     <label>Created by Team Hammer, UW INFO 343 (SUM 2015)</label><br>
     <label><a href = #>Back to Top &#8593</a></label>
   </footer>
   </div>  
+  </div>
 </body>
 </html>

@@ -18,7 +18,6 @@ $(function() {
 		retweets: 0,
 		favorites: 0
 	}
-	search(query);
 });
 
 function search(query) {
@@ -62,7 +61,7 @@ function populateMap(data, query) {
 			var circle = new L.circle(d.geo.coordinates, radius, {color:'#55acee', fillColor:'white', fillOpacity:0.8, weight:5}).addTo(map);
 			circles.push(circle);
 			circle.selected = false;
-			if (count < 1) {
+			if (count < 10) {
 				var info;
 				$.ajax({
 					url:'../services/getEmbeddedTweet.php',

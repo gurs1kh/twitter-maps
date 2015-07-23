@@ -56,19 +56,17 @@ formApp.controller('formCtrl', function($scope, $http){
 		}
 
 		if(!$scope.locationShow){
-			query[location].coordinates[$scope.latitude] = null;
-			query[location].coordinates[$scope.latitude] = null;
-			query[location].radius = null;
+			query.location = null;
 		} else if (!$scope.langShow){
-			query[lang] = null;
+			query.lang = null;
 		} else if (!$scope.countryShow){
-			query[country] = null;
+			query.country = null;
 		} else if (!$scope.dateShow){
-			query[date] = null;
+			query.date = null;
 		} else if (!$scope.favoritesShow){
-			query[favorites] = null;
+			query.favorites = null;
 		} else if (!$scope.retweetsShow){
-			query[retweets] = null;
+			query.retweets = null;
 		}
 
 		search(query);

@@ -27,11 +27,3 @@ html, body, #container, #map {
 .twitter-tweet, .EmbeddedTweet-tweet {
 	border: none !important;
 }
-
-#homeLink {
-	position:fixed;
-	bottom:0px;
-	width:100%;
-	text-align: center;
-	background-color: white;
-}
